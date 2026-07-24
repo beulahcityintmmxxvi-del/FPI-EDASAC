@@ -1,0 +1,12 @@
+start the server
+backend - uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+frontend - flutter run
+
+ #login details
+             # barbing    cRep
+#  student - 2460141001 | 1300 / 12345678
+#  Computer repairs tutor - esuniMolen23@gmail.com / tutorMolenke45#
+# Barbing tutor - madekel45@gmail.com / staffMakel76@EDASAC
+#  admin@fpi.edu.ng / Admin@123
+# Web design tutor1: tutor1@fpi.edu.ng / Tutor@2024
+#Fashion design tutor3 - deleK462@gmail.com/delekeEmm2456@EED

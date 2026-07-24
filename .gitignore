@@ -1,0 +1,109 @@
+# ======================================================================
+# GLOBAL
+# ======================================================================
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+*.iml
+
+# ======================================================================
+# PYTHON / FASTAPI BACKEND
+# ======================================================================
+backend/venv/
+backend/env/
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/**/*.pyc
+backend/.pytest_cache/
+backend/.env
+backend/.env.local
+backend/uploads/
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# ======================================================================
+# FLUTTER FRONTEND
+# ======================================================================
+frontend/.dart_tool/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.packages
+frontend/.pub-cache/
+frontend/.pub/
+frontend/build/
+frontend/coverage/
+frontend/pubspec.lock
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+**/generated_plugin_registrant.dart
+
+# ======================================================================
+# ANDROID
+# ======================================================================
+frontend/android/.gradle/
+frontend/android/captures/
+frontend/android/gradlew
+frontend/android/gradlew.bat
+frontend/android/local.properties
+frontend/android/**/GeneratedPluginRegistrant.java
+frontend/android/key.properties
+frontend/android/app/debug/
+frontend/android/app/profile/
+frontend/android/app/release/
+frontend/android/.cxx/
+frontend/android/app/.cxx/
+frontend/android/build/
+frontend/android/app/build/
+frontend/**/*.jks
+frontend/**/*.keystore
+
+# ======================================================================
+# iOS
+# ======================================================================
+frontend/ios/**/dgph
+frontend/ios/**/Pods/
+frontend/ios/.symlinks/
+frontend/ios/Flutter/App.framework
+frontend/ios/Flutter/Flutter.framework
+frontend/ios/Flutter/Flutter.podspec
+frontend/ios/Flutter/Generated.xcconfig
+frontend/ios/Flutter/ephemeral/
+frontend/ios/Flutter/app.flx
+frontend/ios/Flutter/app.zip
+frontend/ios/Flutter/flutter_assets/
+frontend/ios/Flutter/flutter_export_environment.sh
+frontend/ios/ServiceDefinitions.json
+frontend/ios/Runner/GeneratedPluginRegistrant.*
+frontend/**/xcuserdata
+frontend/**/DerivedData/
+
+# ======================================================================
+# WINDOWS / LINUX / MACOS DESKTOP BUILDS
+# ======================================================================
+frontend/linux/flutter/ephemeral/
+frontend/macos/Flutter/ephemeral/
+frontend/windows/flutter/ephemeral/
+
+# ======================================================================
+# WEB
+# ======================================================================
+frontend/web/index.html.bak
+frontend/lib/generated_plugin_registrant.dart
+
+# ======================================================================
+# APK / IPA / AAB BUILD ARTIFACTS
+# ======================================================================
+*.apk
+*.aab
+*.ipa
+*.app
+*.exe
+*.msix
+*.dmg

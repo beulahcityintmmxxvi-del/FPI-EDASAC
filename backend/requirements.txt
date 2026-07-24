@@ -1,0 +1,46 @@
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Database
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+alembic==1.12.1
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+bcrypt==4.1
+
+# Environment Management
+python-dotenv==1.0.0
+
+# Validation
+pydantic==2.5.0
+pydantic-settings==2.1.0
+email-validator==2.1.0
+
+# File Handling
+aiofiles==23.2.1
+python-magic-bin==0.4.14
+
+# Image Processing
+Pillow==10.1.0
+
+# Video Processing
+moviepy==1.0.3
+
+# PDF Processing
+PyPDF2==3.0.1
+
+# CORS
+fastapi-cors==0.0.6
+
+# Testing
+pytest==7.4.3
+httpx==0.25.2
+
+# Utilities
+python-slugify==8.0.0
+
