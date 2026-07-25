@@ -97,7 +97,15 @@ async def root():
 async def health_check():
     return {"status": "healthy", "database": "connected"}
 
-
+for _dir in [
+    settings.UPLOAD_DIR,
+    settings.VIDEO_DIR,
+    settings.PDF_DIR,
+    settings.IMAGE_DIR,
+    settings.TEMP_DIR,
+]:
+# Ensure uploads directory exists before mounting
+os.makedirs("uploads", exist_ok=True)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
