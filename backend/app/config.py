@@ -2,7 +2,7 @@
 Application Configuration Module
 Manages environment variables and application settings
 """
-
+import os
 from pydantic_settings import BaseSettings
 from typing import List
 from functools import lru_cache
@@ -24,11 +24,17 @@ class Settings(BaseSettings):
     PORT: int = 8000
     
     # Database
-    DATABASE_URL: str = "postgresql://postgres:admin123@localhost:5432/vocational_skills_db"
+    DATABASE_URL: str = os.getenv(
+    "DATABASE_URL",
+    "postgresql://postgres:admin123@localhost:5432/vocational_skills_db"
+    )
     DB_ECHO: bool = True
     
     # Security
-    SECRET_KEY: str = "your-super-secret-key-change-in-production-min-32-chars-required-for-security"
+    SECRET_KEY: str = os.getenv(
+    "SECRET_KEY",
+    "f6a1779cac40b550398fccb38cdd30bd95e5e0dd94de8361cca0924cb82ce934"
+    )
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 10080  # 7 days
     

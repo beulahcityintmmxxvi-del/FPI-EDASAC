@@ -11,7 +11,9 @@ from app.config import settings
 
 # Create SQLAlchemy engine
 engine = create_engine(
-    settings.DATABASE_URL,
+    db_url = settings.DATABASE_URL
+    if db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
     pool_pre_ping=True,
     echo=settings.DB_ECHO,
     future=True
