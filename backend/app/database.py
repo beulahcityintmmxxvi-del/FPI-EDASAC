@@ -2,22 +2,18 @@
 Database Configuration and Session Management
 Handles PostgreSQL connection using SQLAlchemy ORM
 """
-import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from typing import Generator
 from app.config import settings
 
-# Fix for Render PostgreSQL URL (postgres:// -> postgresql://)
-db_url = settings.DATABASE_URL
-
-if db_url.startswith("postgres://"):
-    db_url = db_url.replace("postgres://", "postgresql://", 1)
-
 # Create SQLAlchemy engine
 engine = create_engine(
-    db_url,
+    db_url = settings.DATABASE_URL
+    if db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
     pool_pre_ping=True,
     echo=settings.DB_ECHO,
     future=True

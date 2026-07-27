@@ -3,20 +3,18 @@ FastAPI Application Entry Point
 REST API Server for Flutter Mobile Application (Android/iOS/Web)
 """
 
+import os
 import sys
 from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import os
-
 
 from app.config import settings
-from app.database import init_db, SessionLocal
+from app.database import SessionLocal, init_db
+from app.routes import admin, auth, multimedia, student, tutor
 from app.utils import seed_all
-
-
-from app.routes import auth, admin, tutor, student, multimedia
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent
 if str(BACKEND_DIR) not in sys.path:
@@ -105,7 +103,7 @@ for _dir in [
     settings.TEMP_DIR,
 ]:
 # Ensure uploads directory exists before mounting
-os.makedirs("uploads", exist_ok=True)
+    os.makedirs("uploads", exist_ok=True)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
