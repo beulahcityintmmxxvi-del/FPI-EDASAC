@@ -82,29 +82,29 @@ class _StudentDashboardState extends State<StudentDashboard> {
           Text(
             _tabTitles[_currentIndex],
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: AppColors.textPrimary,
-                  fontWeight: FontWeight.w700,
-                ),
+              color: AppColors.textPrimary,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           if (_currentIndex == 0)
             Text(
               'Welcome back, ${user?.firstName ?? "Student"}',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall?.copyWith(color: AppColors.textSecondary),
             ),
         ],
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.rate_review_outlined,
-              color: AppColors.textSecondary),
+          icon: const Icon(
+            Icons.rate_review_outlined,
+            color: AppColors.textSecondary,
+          ),
           tooltip: 'My Reviews',
           onPressed: () {
             Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => const StudentReviewsScreen(),
-              ),
+              MaterialPageRoute(builder: (_) => const StudentReviewsScreen()),
             );
           },
         ),
@@ -266,8 +266,11 @@ class _DashboardTab extends StatelessWidget {
                   color: AppColors.white.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Icon(Icons.school_rounded,
-                    color: AppColors.white, size: 28),
+                child: const Icon(
+                  Icons.school_rounded,
+                  color: AppColors.white,
+                  size: 28,
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -277,9 +280,9 @@ class _DashboardTab extends StatelessWidget {
                     Text(
                       vocation,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: AppColors.white,
-                            fontWeight: FontWeight.w700,
-                          ),
+                        color: AppColors.white,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     if (department.isNotEmpty || level.isNotEmpty)
                       Text(
@@ -287,8 +290,8 @@ class _DashboardTab extends StatelessWidget {
                         '${department.isNotEmpty && level.isNotEmpty ? ' · ' : ''}'
                         '$level',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: AppColors.white.withValues(alpha: 0.85),
-                            ),
+                          color: AppColors.white.withValues(alpha: 0.85),
+                        ),
                       ),
                   ],
                 ),
@@ -306,9 +309,9 @@ class _DashboardTab extends StatelessWidget {
               '${provider.totalEnrollments} '
               'Course${provider.totalEnrollments != 1 ? 's' : ''} Enrolled',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.w600,
-                  ),
+                color: AppColors.white,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ],
@@ -405,19 +408,16 @@ class _DashboardTab extends StatelessWidget {
                 children: [
                   Text(
                     value,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(
-                          color: color,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      color: color,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     label,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: AppColors.textSecondary,
-                        ),
+                      color: AppColors.textSecondary,
+                    ),
                   ),
                 ],
               ),
@@ -440,19 +440,16 @@ class _DashboardTab extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: AppColors.textPrimary,
-                fontWeight: FontWeight.w700,
-              ),
+            color: AppColors.textPrimary,
+            fontWeight: FontWeight.w700,
+          ),
         ),
         if (actionLabel != null && onAction != null)
           TextButton(
             onPressed: onAction,
             style: TextButton.styleFrom(
               foregroundColor: AppColors.primaryGreen,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8,
-                vertical: 4,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             ),
             child: Row(
               children: [
@@ -547,10 +544,9 @@ class _DashboardTab extends StatelessWidget {
                   children: [
                     Text(
                       course.title,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(fontWeight: FontWeight.w600),
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -559,8 +555,8 @@ class _DashboardTab extends StatelessWidget {
                       '${course.moduleCount ?? 0} '
                       'module${(course.moduleCount ?? 0) != 1 ? 's' : ''} · Tap to open',
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: AppColors.textSecondary,
-                          ),
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
@@ -691,10 +687,9 @@ class _DashboardTab extends StatelessWidget {
                   children: [
                     Text(
                       assignment.title,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(fontWeight: FontWeight.w600),
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -703,9 +698,7 @@ class _DashboardTab extends StatelessWidget {
                       children: [
                         Text(
                           'Max: ${assignment.maxScore.toInt()}',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall
+                          style: Theme.of(context).textTheme.bodySmall
                               ?.copyWith(color: AppColors.textSecondary),
                         ),
                         if (isGraded &&
@@ -713,9 +706,7 @@ class _DashboardTab extends StatelessWidget {
                             submission.score != null) ...[
                           Text(
                             ' · Score: ${submission.score!.toInt()}',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
+                            style: Theme.of(context).textTheme.bodySmall
                                 ?.copyWith(
                                   color: AppColors.success,
                                   fontWeight: FontWeight.w600,
@@ -728,10 +719,7 @@ class _DashboardTab extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 8,
-                  vertical: 4,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: statusColor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(20),
@@ -739,9 +727,9 @@ class _DashboardTab extends StatelessWidget {
                 child: Text(
                   statusText,
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: statusColor,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    color: statusColor,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ],
@@ -781,9 +769,7 @@ class _DashboardTab extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.white,
             borderRadius: BorderRadius.circular(AppConstants.defaultRadius),
-            border: Border.all(
-              color: AppColors.success.withValues(alpha: 0.3),
-            ),
+            border: Border.all(color: AppColors.success.withValues(alpha: 0.3)),
             boxShadow: [
               BoxShadow(
                 color: AppColors.shadowLight,
@@ -817,9 +803,7 @@ class _DashboardTab extends StatelessWidget {
                       children: [
                         Text(
                           assignment?.title ?? 'Assignment',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall
+                          style: Theme.of(context).textTheme.titleSmall
                               ?.copyWith(fontWeight: FontWeight.w600),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -828,9 +812,7 @@ class _DashboardTab extends StatelessWidget {
                           Text(
                             'Score: ${submission.score!.toInt()}'
                             '/${assignment.maxScore.toInt()}',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
+                            style: Theme.of(context).textTheme.bodySmall
                                 ?.copyWith(
                                   color: AppColors.success,
                                   fontWeight: FontWeight.w600,
@@ -865,12 +847,12 @@ class _DashboardTab extends StatelessWidget {
                       Expanded(
                         child: Text(
                           submission.feedback!,
-                          style:
-                              Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    color: AppColors.textSecondary,
-                                    fontStyle: FontStyle.italic,
-                                    height: 1.4,
-                                  ),
+                          style: Theme.of(context).textTheme.bodySmall
+                              ?.copyWith(
+                                color: AppColors.textSecondary,
+                                fontStyle: FontStyle.italic,
+                                height: 1.4,
+                              ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -905,9 +887,9 @@ class _DashboardTab extends StatelessWidget {
           Text(
             message,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppColors.textSecondary,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(color: AppColors.textSecondary),
           ),
         ],
       ),
@@ -963,10 +945,7 @@ class _CoursesTabState extends State<_CoursesTab>
         Expanded(
           child: TabBarView(
             controller: _tabController,
-            children: const [
-              _AvailableCoursesView(),
-              _EnrolledCoursesView(),
-            ],
+            children: const [_AvailableCoursesView(), _EnrolledCoursesView()],
           ),
         ),
       ],
@@ -1002,8 +981,8 @@ class _AvailableCoursesView extends StatelessWidget {
                   'No courses available\nfor your vocation yet.',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.textSecondary,
-                      ),
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ),
@@ -1018,8 +997,9 @@ class _AvailableCoursesView extends StatelessWidget {
             itemCount: provider.availableCourses.length,
             itemBuilder: (context, index) {
               final course = provider.availableCourses[index];
-              final isEnrolled =
-                  provider.enrolledCourses.any((e) => e.id == course.id);
+              final isEnrolled = provider.enrolledCourses.any(
+                (e) => e.id == course.id,
+              );
               return _buildAvailableCourseCard(
                 context,
                 course,
@@ -1084,10 +1064,9 @@ class _AvailableCoursesView extends StatelessWidget {
                     children: [
                       Text(
                         course.title,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall
-                            ?.copyWith(fontWeight: FontWeight.w700),
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -1102,9 +1081,7 @@ class _AvailableCoursesView extends StatelessWidget {
                           const SizedBox(width: 4),
                           Text(
                             '${course.moduleCount ?? 0} modules',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
+                            style: Theme.of(context).textTheme.bodySmall
                                 ?.copyWith(color: AppColors.textSecondary),
                           ),
                           const SizedBox(width: 12),
@@ -1116,9 +1093,7 @@ class _AvailableCoursesView extends StatelessWidget {
                           const SizedBox(width: 4),
                           Text(
                             '${course.enrollmentCount ?? 0} enrolled',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
+                            style: Theme.of(context).textTheme.bodySmall
                                 ?.copyWith(color: AppColors.textSecondary),
                           ),
                         ],
@@ -1134,9 +1109,9 @@ class _AvailableCoursesView extends StatelessWidget {
               Text(
                 course.description!,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppColors.textSecondary,
-                      height: 1.4,
-                    ),
+                  color: AppColors.textSecondary,
+                  height: 1.4,
+                ),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -1149,9 +1124,8 @@ class _AvailableCoursesView extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (_) => StudentCourseModulesScreen(
-                              course: course,
-                            ),
+                            builder: (_) =>
+                                StudentCourseModulesScreen(course: course),
                           ),
                         );
                       },
@@ -1194,9 +1168,7 @@ class _AvailableCoursesView extends StatelessWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         title: const Text('Enroll in Course'),
         content: Text(
           'Enroll in "${course.title}"?\n\n'
@@ -1228,8 +1200,7 @@ class _AvailableCoursesView extends StatelessWidget {
                   ? 'Successfully enrolled in ${course.title}'
                   : provider.errorMessage ?? 'Enrollment failed',
             ),
-            backgroundColor:
-                success ? AppColors.success : AppColors.error,
+            backgroundColor: success ? AppColors.success : AppColors.error,
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -1268,10 +1239,9 @@ class _EnrolledCoursesView extends StatelessWidget {
                 Text(
                   'You have not enrolled in any courses yet.',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: AppColors.textSecondary),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ),
@@ -1341,20 +1311,18 @@ class _EnrolledCoursesView extends StatelessWidget {
                   children: [
                     Text(
                       course.title,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(fontWeight: FontWeight.w700),
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 4),
                     Text(
                       '${course.moduleCount ?? 0} modules · Tap to study',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(color: AppColors.textSecondary),
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
@@ -1412,10 +1380,9 @@ class _AssignmentsTab extends StatelessWidget {
                   'No assignments yet.\n'
                   'Enroll in courses to see assignments.',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: AppColors.textSecondary),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ),
@@ -1524,9 +1491,7 @@ class _AssignmentsTab extends StatelessWidget {
                         children: [
                           Text(
                             assignment.title,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall
+                            style: Theme.of(context).textTheme.titleSmall
                                 ?.copyWith(fontWeight: FontWeight.w700),
                           ),
                           if (assignment.description != null &&
@@ -1534,9 +1499,7 @@ class _AssignmentsTab extends StatelessWidget {
                             const SizedBox(height: 4),
                             Text(
                               assignment.description!,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall
+                              style: Theme.of(context).textTheme.bodySmall
                                   ?.copyWith(color: AppColors.textSecondary),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
@@ -1551,15 +1514,12 @@ class _AssignmentsTab extends StatelessWidget {
                                   vertical: 3,
                                 ),
                                 decoration: BoxDecoration(
-                                  color:
-                                      AppColors.gold.withValues(alpha: 0.1),
+                                  color: AppColors.gold.withValues(alpha: 0.1),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Text(
                                   'Max: ${assignment.maxScore.toInt()} pts',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .labelSmall
+                                  style: Theme.of(context).textTheme.labelSmall
                                       ?.copyWith(
                                         color: AppColors.goldDark,
                                         fontWeight: FontWeight.w600,
@@ -1576,8 +1536,9 @@ class _AssignmentsTab extends StatelessWidget {
                                     vertical: 3,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: AppColors.success
-                                        .withValues(alpha: 0.1),
+                                    color: AppColors.success.withValues(
+                                      alpha: 0.1,
+                                    ),
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: Text(
@@ -1609,13 +1570,10 @@ class _AssignmentsTab extends StatelessWidget {
                       ),
                       child: Text(
                         statusText,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelSmall
-                            ?.copyWith(
-                              color: statusColor,
-                              fontWeight: FontWeight.w600,
-                            ),
+                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: statusColor,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ],
@@ -1645,9 +1603,7 @@ class _AssignmentsTab extends StatelessWidget {
                         Expanded(
                           child: Text(
                             'Feedback: ${submission.feedback}',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
+                            style: Theme.of(context).textTheme.bodySmall
                                 ?.copyWith(
                                   color: AppColors.textSecondary,
                                   fontStyle: FontStyle.italic,
@@ -1658,9 +1614,7 @@ class _AssignmentsTab extends StatelessWidget {
                     ),
                   ),
                 ],
-                if (isSubmitted &&
-                    submission != null &&
-                    submission.submissionText != null) ...[
+                if (isSubmitted && submission.submissionText != null) ...[
                   const SizedBox(height: 10),
                   Container(
                     padding: const EdgeInsets.all(10),
@@ -1673,9 +1627,7 @@ class _AssignmentsTab extends StatelessWidget {
                       children: [
                         Text(
                           'Your submission:',
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelSmall
+                          style: Theme.of(context).textTheme.labelSmall
                               ?.copyWith(
                                 color: AppColors.textTertiary,
                                 fontWeight: FontWeight.w600,
@@ -1712,8 +1664,9 @@ class _AssignmentsTab extends StatelessWidget {
                       : Icons.upload_file_outlined,
                   size: 18,
                 ),
-                label:
-                    Text(isSubmitted ? 'Edit Submission' : 'Submit Assignment'),
+                label: Text(
+                  isSubmitted ? 'Edit Submission' : 'Submit Assignment',
+                ),
                 style: TextButton.styleFrom(
                   foregroundColor: AppColors.primaryGreen,
                   minimumSize: const Size(double.infinity, 48),
@@ -1775,9 +1728,9 @@ class _ProfileTab extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             user?.fullName ?? 'Student',
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 4),
           Container(
@@ -1789,17 +1742,17 @@ class _ProfileTab extends StatelessWidget {
             child: Text(
               'Student',
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    color: AppColors.primaryGreen,
-                    fontWeight: FontWeight.w600,
-                  ),
+                color: AppColors.primaryGreen,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           const SizedBox(height: 8),
           Text(
             'Tap the camera icon to update your photo',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: AppColors.textTertiary,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: AppColors.textTertiary),
           ),
           const SizedBox(height: 24),
           _buildInfoCard(context, [
@@ -1895,17 +1848,17 @@ class _ProfileTab extends StatelessWidget {
           Expanded(
             child: Text(
               label,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: AppColors.textSecondary),
             ),
           ),
           Text(
             value,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: valueColor ?? AppColors.textPrimary,
-                ),
+              fontWeight: FontWeight.w600,
+              color: valueColor ?? AppColors.textPrimary,
+            ),
           ),
         ],
       ),

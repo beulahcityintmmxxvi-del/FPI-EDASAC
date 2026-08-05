@@ -17,7 +17,8 @@ class AppConstants {
   //  - Physical device on same Wi-Fi         → http://<your-LAN-IP>:8000
   //
   // If you deploy the backend, replace with the production URL.
-  static const String baseUrl = 'http://127.0.0.1:8000';
+  // static const String baseUrl = 'http://127.0.0.1:8000';
+  static const String baseUrl = 'https://fpi-edasac-api.onrender.com';
   // static const String baseUrl = 'http://10.31.149.197:8000';
   static const String apiUrl = '$baseUrl/api';
 
@@ -179,13 +180,13 @@ class AppConstants {
     'jpeg',
     'png',
     'gif',
-    'webp'
+    'webp',
   ];
   static const List<String> allowedVideoExtensions = [
     'mp4',
     'avi',
     'mov',
-    'mkv'
+    'mkv',
   ];
   static const List<String> allowedDocumentExtensions = ['pdf', 'doc', 'docx'];
 

@@ -43,6 +43,7 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^6.0.0
   flutter_launcher_icons: ^0.14.1
+  msix: ^3.18.0
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -60,3 +61,12 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+
+msix_config:
+  display_name: EDASAC Vocational Skills
+  publisher_display_name: Federal Polytechnic Ilaro
+  identity_name: ng.edu.fpi.vocational_skills_app
+  msix_version: 1.0.0.0
+  logo_path: assets\images\edsac_logo.png
+  capabilities: internetClient
+  publisher: CN=EDASAC-FPI-Dev
